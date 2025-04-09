@@ -1,0 +1,28 @@
+<h2 mat-dialog-title>Détails du message #{{ message.id }}</h2>
+<mat-dialog-content>
+  <div class="message-details">
+    <div class="detail-row">
+      <span class="label">ID:</span>
+      <span class="value">{{ message.id }}</span>
+    </div>
+    <div class="detail-row">
+      <span class="label">MQID:</span>
+      <span class="value">{{ message.messageId }}</span>
+    </div>
+    <div class="detail-row">
+      <span class="label">Expéditeur:</span>
+      <span class="value">{{ message.sender }}</span>
+    </div>
+    <div class="detail-row">
+      <span class="label">Date/Heure:</span>
+      <span class="value">{{ message.receivedTimestamp | date:'dd/MM/yyyy HH:mm:ss' }}</span>
+    </div>
+    <div class="content-section">
+      <div class="label">Contenu:</div>
+      <div class="content-box">{{ message.content }}</div>
+    </div>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button (click)="onClose()">Fermer</button>
+</mat-dialog-actions>

@@ -1,0 +1,14 @@
+.form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 8px;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+.spinner {
+  margin-right: 8px;
+}

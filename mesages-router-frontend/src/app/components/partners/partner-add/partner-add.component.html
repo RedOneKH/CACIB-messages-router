@@ -1,0 +1,67 @@
+<h2 mat-dialog-title>Ajouter un partenaire</h2>
+<form [formGroup]="partnerForm" (ngSubmit)="onSubmit()">
+  <mat-dialog-content>
+    <div class="form-container">
+      <mat-form-field appearance="outline">
+        <mat-label>Alias</mat-label>
+        <input matInput formControlName="alias" required>
+        <mat-error *ngIf="partnerForm.get('alias')?.hasError('required')">
+          L'alias est obligatoire
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Type</mat-label>
+        <input matInput formControlName="type" required>
+        <mat-error *ngIf="partnerForm.get('type')?.hasError('required')">
+          Le type est obligatoire
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Direction</mat-label>
+        <mat-select formControlName="direction" required>
+          <mat-option *ngFor="let direction of directions" [value]="direction">
+            {{ direction }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="partnerForm.get('direction')?.hasError('required')">
+          La direction est obligatoire
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Application</mat-label>
+        <input matInput formControlName="application">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Type de flux traité</mat-label>
+        <mat-select formControlName="processedFlowType" required>
+          <mat-option *ngFor="let flowType of processedFlowTypes" [value]="flowType">
+            {{ flowType }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="partnerForm.get('processedFlowType')?.hasError('required')">
+          Le type de flux est obligatoire
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Description</mat-label>
+        <textarea matInput formControlName="description" required rows="3"></textarea>
+        <mat-error *ngIf="partnerForm.get('description')?.hasError('required')">
+          La description est obligatoire
+        </mat-error>
+      </mat-form-field>
+    </div>
+  </mat-dialog-content>
+
+  <mat-dialog-actions align="end">
+    <button mat-button type="button" [disabled]="isSubmitting" (click)="onCancel()">Annuler</button>
+    <button mat-raised-button color="primary" type="submit" [disabled]="isSubmitting">
+      <mat-spinner *ngIf="isSubmitting" diameter="20" class="spinner"></mat-spinner>
+      <span *ngIf="!isSubmitting">Ajouter</span>
+    </button>
+  </mat-dialog-actions>
+</form>
