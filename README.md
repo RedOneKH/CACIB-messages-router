@@ -39,8 +39,8 @@ Cette application permet la gestion des messages de paiement reçus par le dépa
 
 1. Cloner le dépôt:
    ```bash
-   git clone https://github.com/username/payment-router.git
-   cd payment-router
+   git clone https://github.com/RedOneKH/CACIB-messages-router.git
+   cd CACIB-messages-router
    docker-compose up -d
    ```
 
